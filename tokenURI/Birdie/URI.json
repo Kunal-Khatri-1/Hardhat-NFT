@@ -1,0 +1,9 @@
+{
+    "name": "Skyie",
+    "description": "An adorable bird",
+    "image": "ipfs://bafybeighihi6qh5atwldepgv4ew4kgxblpk2ct3vtkpqp5r4ojbocxwfuy/",
+    "attributes": {
+        "trait_type": "cuteness",
+        "value": "99"
+    }
+}
