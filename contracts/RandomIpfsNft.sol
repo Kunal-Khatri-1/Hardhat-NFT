@@ -97,6 +97,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
     function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override {
         address nftBirdOwner = s_requestIdToSender[requestId];
         uint256 newTokenId = s_tokenCounter;
+        s_tokenCounter = s_tokenCounter + 1;
 
         // getting a number between 0 and 99
         // 0 - 10 => Skyie
