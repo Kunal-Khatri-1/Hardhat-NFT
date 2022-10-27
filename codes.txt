@@ -1,2 +1,9 @@
 yarn add --dev @openzeppelin/contracts
+
 yarn add --dev @chainlink/contracts
+
+// Pinata is just an IPFS node run by somebody else and we can request to pin our data
+yarn add --dev @pinata/sdk
+
+// help work with path
+yarn add --dev path
