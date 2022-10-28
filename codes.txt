@@ -7,3 +7,5 @@ yarn add --dev @pinata/sdk
 
 // help work with path
 yarn add --dev path
+
+yarn hardhat deploy --tags randomipfs,mocks
