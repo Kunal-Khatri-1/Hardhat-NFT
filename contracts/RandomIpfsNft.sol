@@ -44,7 +44,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
 
     // NFT Variables
     uint256 private s_tokenCounter;
-    uint256 internal constant MAX_CHANCE_VALUE = 100;
+    uint256 internal constant MAX_CHANCE_VALUE = 60;
     // paramterizing instead of hardcoding the URIs
     string[] internal s_birdTokenUris;
     uint256 internal i_mintFee;
@@ -134,7 +134,10 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         uint256 cumulativeSum = 0;
         uint256[3] memory chanceArray = getChanceArray();
         for (uint256 i = 0; i < chanceArray.length; i++) {
-            if (moddedRng >= cumulativeSum && moddedRng < cumulativeSum + chanceArray[i]) {
+            // Skyie = 0 - 9  (10%)
+            // Duckie = 10 - 39  (30%)
+            // Quackie = 40 = 99 (60%)
+            if (moddedRng >= cumulativeSum && moddedRng < chanceArray[i] + cumulativeSum) {
                 return Specie(i);
             }
             cumulativeSum += chanceArray[i];

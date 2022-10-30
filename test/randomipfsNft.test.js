@@ -103,4 +103,33 @@ const {
                   })
               })
           })
+
+          describe("getBirdFromModdedRng", function () {
+              it("should revert with RandomIpfsNft__RangeOutOfBounds() if moddedRng >= 100", async function () {
+                  await expect(randomIpfsNft.getBirdFromModdedRng("101")).to.be.revertedWith(
+                      "RandomIpfsNft__RangeOutOfBounds"
+                  )
+              })
+
+              it("should return Skyie if moddedRng is between 0 and 9", async function () {
+                  for (let i = 0; i < 10; i++) {
+                      const BirdFromModdedRng = await randomIpfsNft.getBirdFromModdedRng(i)
+                      assert.equal(0, BirdFromModdedRng)
+                  }
+              })
+
+              it("should return Duckie if moddedRng is between 10 and 39", async function () {
+                  for (let i = 10; i < 40; i++) {
+                      const BirdFromModdedRng = await randomIpfsNft.getBirdFromModdedRng(i)
+                      assert.equal(1, BirdFromModdedRng)
+                  }
+              })
+
+              it("should return Quckie if moddedRng is between 40 and 99", async function () {
+                  for (let i = 40; i < 100; i++) {
+                      const BirdFromModdedRng = await randomIpfsNft.getBirdFromModdedRng(i)
+                      assert.equal(2, BirdFromModdedRng)
+                  }
+              })
+          })
       })
