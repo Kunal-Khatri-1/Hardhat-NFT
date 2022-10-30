@@ -68,4 +68,39 @@ const {
                   )
               })
           })
+
+          describe("fulfillRandomWords", function () {
+              it("mints the NFT after a random number is returned", async function () {
+                  await new Promise(async (resolve, reject) => {
+                      randomIpfsNft.once("NftMinted", async function () {
+                          try {
+                              const tokenUri = await randomIpfsNft.getBirdTokenUris("0")
+                              const tokenCounter = await randomIpfsNft.getTokenCounter()
+
+                              assert.equal(tokenUri.toString().startsWith("ipfs://", 0), true)
+                              assert.equal(tokenCounter.toString(), 1)
+
+                              resolve()
+                          } catch (error) {
+                              console.log(error)
+                              reject(error)
+                          }
+                      })
+
+                      try {
+                          const requestNftResponse = await randomIpfsNft.requestNft({
+                              value: mintFee.toString(),
+                          })
+                          const requestNftReceipt = await requestNftResponse.wait(1)
+                          await vrfCoordinatorV2Mock.fulfillRandomWords(
+                              requestNftReceipt.events[1].args.requestId,
+                              randomIpfsNft.address
+                          )
+                      } catch (error) {
+                          console.log(error)
+                          reject(error)
+                      }
+                  })
+              })
+          })
       })
