@@ -38,7 +38,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     //      Pinata is just an IPFS node run by somebody else and we can request to pin our data
     // 3. NFT.Storage => uses fileCoin network at backend to pin our data (filecoin => blockchain dedicated to pinning ipfs data and storing decentralized data)
 
-    if ((process.env.UPLOAD_TO_PINATA = "true")) {
+    if (process.env.UPLOAD_TO_PINATA == "true") {
         tokenUris = await handleTokenUris()
     }
 
