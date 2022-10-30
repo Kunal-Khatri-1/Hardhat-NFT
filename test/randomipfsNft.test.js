@@ -40,7 +40,7 @@ const {
           })
 
           describe("requestNft", function () {
-              it("should revert with RandomIpfsNft__NeedMoreEth()", async function () {
+              it("should revert when no ETH sent with RandomIpfsNft__NeedMoreEth()", async function () {
                   // WRONG WAY =>
                   // THIS WILL THROW ERROR IN TERMINAL
                   //   const requestNftTx = await randomIpfsNft.requestNft()
@@ -52,16 +52,20 @@ const {
                   )
               })
 
+              it("should revert when less ETH is sent than mintFee with RandomIpfsNft__NeedMoreEth()", async function () {
+                  await expect(
+                      randomIpfsNft.requestNft({
+                          value: mintFee.sub(ethers.utils.parseEther("0.0001")).toString(),
+                      })
+                  ).to.be.revertedWith("RandomIpfsNft__NeedMoreEth()")
+              })
+
               // SEE NOT USING await and tx.wait(1) with the function call
               it("should emit event NftRequested", async function () {
-                  await expect(randomIpfsNft.requestNft({ value: mintFee })).to.emit(
+                  await expect(randomIpfsNft.requestNft({ value: mintFee.toString() })).to.emit(
                       randomIpfsNft,
                       "NftRequested"
                   )
               })
-          })
-
-          describe("fulfillRandomWords", function () {
-              it()
           })
       })
