@@ -1,0 +1,56 @@
+<svg width="200" height="200" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient
+              id="linear_gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stop-color="red"></stop>
+              <stop offset="50%" stop-color="orange"></stop>
+              <stop offset="100%" stop-color="green"></stop>
+            </linearGradient>
+
+            <radialGradient
+              id="radial_gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stop-color="white"></stop>
+              <stop offset="100%" stop-color="#c4c4c4"></stop>
+            </radialGradient>
+          </defs>
+
+          <rect
+            x="-100"
+            y="-100"
+            width="200"
+            height="200"
+            fill="url(#radial_gradient)"
+          ></rect>
+
+          <g transform="translate(0 30)">
+            <path
+              d="
+          M -75 0
+          A 75 75 0 1 1 75 0
+          "
+              fill="none"
+              stroke="url(#linear_gradient)"
+              stroke-width="10"
+            ></path>
+
+            <path
+              d="
+            M -70 -2.5
+            L 0 -7.5
+            Q 3 -2.5 0 2.5
+            L -70 -2.5  
+          "
+              transform="rotate(30)"
+            ></path>
+          </g>
+        </svg>
