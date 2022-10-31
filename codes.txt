@@ -15,3 +15,6 @@ yarn add --dev @chainlink/contracts@0.4.1
 // for storing images on chain we will be using SVGs than PNGs
 // SVG => scalabe vector graphics and these are much more minimalistic files than png
 // this makes them suitable to store on-chain (but overall its still very expensive)
+
+// adding base64 encoding
+yarn add --dev base64-sol
