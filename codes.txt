@@ -9,3 +9,5 @@ yarn add --dev @pinata/sdk
 yarn add --dev path
 
 yarn hardhat deploy --tags randomipfs,mocks
+
+yarn add --dev @chainlink/contracts@0.4.1

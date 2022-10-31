@@ -69,41 +69,38 @@ const {
               })
           })
 
-          describe("fulfillRandomWords", function () {
-              it("mints the NFT after a random number is returned", async function () {
+          describe("fulfillRandomWords", () => {
+              it("mints NFT after random number is returned", async function () {
                   await new Promise(async (resolve, reject) => {
-                      randomIpfsNft.once("NftMinted", async function () {
+                      randomIpfsNft.once("NftMinted", async () => {
                           try {
                               const tokenUri = await randomIpfsNft.getBirdTokenUris("0")
                               const tokenCounter = await randomIpfsNft.getTokenCounter()
-
                               assert.equal(tokenUri.toString().startsWith("ipfs://", 0), true)
-                              assert.equal(tokenCounter.toString(), 1)
-
+                              assert.equal(tokenCounter.toString(), "1")
                               resolve()
-                          } catch (error) {
-                              console.log(error)
-                              reject(error)
+                          } catch (e) {
+                              console.log(e)
+                              reject(e)
                           }
                       })
-
                       try {
+                          const fee = await randomIpfsNft.getMintFee()
                           const requestNftResponse = await randomIpfsNft.requestNft({
-                              value: mintFee.toString(),
+                              value: fee.toString(),
                           })
                           const requestNftReceipt = await requestNftResponse.wait(1)
                           await vrfCoordinatorV2Mock.fulfillRandomWords(
                               requestNftReceipt.events[1].args.requestId,
                               randomIpfsNft.address
                           )
-                      } catch (error) {
-                          console.log(error)
-                          reject(error)
+                      } catch (e) {
+                          console.log(e)
+                          reject(e)
                       }
                   })
               })
           })
-
           describe("getBirdFromModdedRng", function () {
               it("should revert with RandomIpfsNft__RangeOutOfBounds() if moddedRng >= 100", async function () {
                   await expect(randomIpfsNft.getBirdFromModdedRng("101")).to.be.revertedWith(

@@ -1,8 +1,8 @@
 const { network } = require("hardhat")
 const { DECIMALS, INITIAL_PRICE } = require("../helper-hardhat-config")
 
-const BASE_FEE = "300000000000000000"
-const GAS_PRICE_LINK = 1e9
+const BASE_FEE = "500000000000000000"
+const GAS_PRICE_LINK = 2e9
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
