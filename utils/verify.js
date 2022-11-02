@@ -14,7 +14,7 @@ const verify = async (contractAddress, args) => {
             console.log("ERROR: ", error)
         }
     } finally {
-        log("--------------------------------------")
+        console.log("--------------------------------------")
     }
 }
 

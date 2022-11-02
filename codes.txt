@@ -18,3 +18,9 @@ yarn add --dev @chainlink/contracts@0.4.1
 
 // adding base64 encoding
 yarn add --dev base64-sol
+
+// this won't mint any of our NFTs it will just deploy our contracts
+yarn hardhat deploy --network goerli --tags main
+
+// to mint the nfts after contracts are deployed
+yarn hardhat deploy --tags mint --network goerli

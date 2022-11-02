@@ -47,6 +47,7 @@ const {
                   //   expect(requestNftTx).to.be.revertedWith("RandomIpfsNft__NeedMoreEth()")
 
                   // CORRECT WAY=> (BEWARE DON'T USE AWAIT HERE!)
+
                   await expect(randomIpfsNft.requestNft()).to.be.revertedWith(
                       "RandomIpfsNft__NeedMoreEth()"
                   )
@@ -76,6 +77,7 @@ const {
                           try {
                               const tokenUri = await randomIpfsNft.getBirdTokenUris("0")
                               const tokenCounter = await randomIpfsNft.getTokenCounter()
+                              console.log(`TokenCounter: ${tokenCounter}`)
                               assert.equal(tokenUri.toString().startsWith("ipfs://", 0), true)
                               assert.equal(tokenCounter.toString(), "1")
                               resolve()
@@ -90,9 +92,18 @@ const {
                               value: fee.toString(),
                           })
                           const requestNftReceipt = await requestNftResponse.wait(1)
+
+                          console.log(
+                              `TokenCounter before fulfill: ${await randomIpfsNft.getTokenCounter()}`
+                          )
+
                           await vrfCoordinatorV2Mock.fulfillRandomWords(
                               requestNftReceipt.events[1].args.requestId,
                               randomIpfsNft.address
+                          )
+
+                          console.log(
+                              `TokenCounter after fulfill: ${await randomIpfsNft.getTokenCounter()}`
                           )
                       } catch (e) {
                           console.log(e)
