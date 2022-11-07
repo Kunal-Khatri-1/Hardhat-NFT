@@ -44,7 +44,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
 
     // NFT Variables
     uint256 private s_tokenCounter;
-    uint256 internal constant MAX_CHANCE_VALUE = 60;
+    uint256 internal constant MAX_CHANCE_VALUE = 100;
     // paramterizing instead of hardcoding the URIs
     string[] internal s_birdTokenUris;
     uint256 internal i_mintFee;
@@ -132,7 +132,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
 
     function getBirdFromModdedRng(uint256 moddedRng) public pure returns (Specie) {
         uint256 cumulativeSum = 0;
-        uint256[3] memory chanceArray = getChanceArray();
+        uint8[3] memory chanceArray = getChanceArray();
         for (uint256 i = 0; i < chanceArray.length; i++) {
             // Skyie = 0 - 9  (10%)
             // Duckie = 10 - 39  (30%)
@@ -146,8 +146,8 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         revert RandomIpfsNft__RangeOutOfBounds();
     }
 
-    function getChanceArray() public pure returns (uint256[3] memory) {
-        return [10, 30, MAX_CHANCE_VALUE];
+    function getChanceArray() public pure returns (uint8[3] memory) {
+        return [10, 30, 60];
     }
 
     function getNftRequestSender(uint256 requestId) public view returns (address) {

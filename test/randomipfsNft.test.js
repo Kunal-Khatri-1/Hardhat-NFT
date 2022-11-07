@@ -79,7 +79,7 @@ const {
                               const tokenCounter = await randomIpfsNft.getTokenCounter()
                               console.log(`TokenCounter: ${tokenCounter}`)
                               assert.equal(tokenUri.toString().startsWith("ipfs://", 0), true)
-                              assert.equal(tokenCounter.toString(), "1")
+                              assert.equal(tokenCounter.toString(), "2")
                               resolve()
                           } catch (e) {
                               console.log(e)

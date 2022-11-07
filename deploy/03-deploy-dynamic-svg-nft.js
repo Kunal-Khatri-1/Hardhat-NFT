@@ -20,11 +20,11 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     }
 
     log("getting the images")
-    const lowSvg = await fs.readFileSync("./images/dynamicSvgNft/low.svg", { encoding: "utf-8" })
-    const mediumSvg = await fs.readFileSync("./images/dynamicSvgNft/medium.svg", {
+    const lowSvg = fs.readFileSync("./images/DynamicSvgNft/low.svg", { encoding: "utf-8" })
+    const mediumSvg = fs.readFileSync("./images/DynamicSvgNft/medium.svg", {
         encoding: "utf-8",
     })
-    const highSvg = await fs.readFileSync("./images/dynamicSvgNft/high.svg", { encoding: "utf-8" })
+    const highSvg = fs.readFileSync("./images/DynamicSvgNft/high.svg", { encoding: "utf-8" })
     log("images got successfully")
 
     args = [ethUsdPriceFeedAddress, lowSvg, mediumSvg, highSvg]
