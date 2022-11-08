@@ -24,7 +24,7 @@
 <img src="./images/dynamicSvgNft/medium.svg" width="225" alt="NFT Dynamic Medium">
 <img src="./images/dynamicSvgNft/low.svg" width="225" alt="NFT Dynamic Low">
 <br />
-<img src="./images/dynamicNft/Birdie.png" width="225" alt="NFT Random Rare">
+<img src="./images/randomNft/Birdie.png" width="225" alt="NFT Random Rare">
 <img src="./images/randomNft/Duckie.png" width="225" alt="NFT Random Uncommon">
 <img src="./images/randomNft/Quackie.png" width="225" alt="NFT Common">
 </p>
