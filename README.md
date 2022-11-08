@@ -1,4 +1,6 @@
-3 Contracts
+# Basic, Random IPFS Hosted and Dynamic SVG NFTs
+
+## 3 Contracts
 
 1. Basic NFT using ERC-721 standard
 
@@ -16,20 +18,13 @@
     If it's below X and above Y => medium price priceOmeter
     if the price of ETH is below Z => low price priceOmeter
 
-# Basic, Random IPFS Hosted and Dynamic SVG NFTs
-
-_[⌨️ (20:28:51) Lesson 14: Hardhat NFTs ](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=73731s)_
-
-[Full Repo](https://github.com/smartcontractkit/full-blockchain-solidity-course-js)
-
-_This repo has been updated to work with Goerli over Rinkeby._
-
 <br/>
 <p align="center">
 <img src="./images/dynamicSvgNft/high.svg" width="225" alt="NFT Dynamic High">
 <img src="./images/dynamicSvgNft/medium.svg" width="225" alt="NFT Dynamic Medium">
 <img src="./images/dynamicSvgNft/low.svg" width="225" alt="NFT Dynamic Low">
-<img src="./images/dynamicNft/Birdie.svg" width="225" alt="NFT Random Rare">
+<br />
+<img src="./images/dynamicNft/Birdie.png" width="225" alt="NFT Random Rare">
 <img src="./images/randomNft/Duckie.png" width="225" alt="NFT Random Uncommon">
 <img src="./images/randomNft/Quackie.png" width="225" alt="NFT Common">
 </p>
