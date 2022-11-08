@@ -17,17 +17,23 @@
     If the price of ETH is above x => high price priceOmeter
     If it's below X and above Y => medium price priceOmeter
     if the price of ETH is below Z => low price priceOmeter
-
+    <hr />
+### SVGs for Dynamic NFTs
 <br/>
 <p align="center">
-<img src="./images/dynamicSvgNft/high.svg" width="225" alt="NFT Dynamic High">
-<img src="./images/dynamicSvgNft/medium.svg" width="225" alt="NFT Dynamic Medium">
-<img src="./images/dynamicSvgNft/low.svg" width="225" alt="NFT Dynamic Low">
-<br />
-<img src="./images/randomNft/Birdie.png" width="225" alt="NFT Random Rare">
-<img src="./images/randomNft/Duckie.png" width="225" alt="NFT Random Uncommon">
-<img src="./images/randomNft/Quackie.png" width="225" alt="NFT Common">
+<img src="./images/dynamicSvgNft/high.svg" width="225" alt="NFT Dynamic High" />
+<img src="./images/dynamicSvgNft/medium.svg" width="225" alt="NFT Dynamic Medium" />
+<img src="./images/dynamicSvgNft/low.svg" width="225" alt="NFT Dynamic Low" />
 </p>
+
+### PNGs for Basic and Random IPFS Hosted NFTs
+<p align="center">
+<br />
+<img src="./images/randomNft/Birdie.png" width="225" alt="NFT Random Rare" />
+<img src="./images/randomNft/Duckie.png" width="225" alt="NFT Random Uncommon" />
+<img src="./images/randomNft/Quackie.png" width="225" alt="NFT Common" />
+</p>
+
 <br/>
 
 # Getting Started
